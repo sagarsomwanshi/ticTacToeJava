@@ -3,10 +3,17 @@ public class TicTacToeGame {
     static Scanner sc = new Scanner(System.in);
     static String [] board = new String[10];
     static String playLetter = null;
+    static int toss = 0;
     public static void main(String[] args) {
         UC1();
         UC2();
-        UC4();
+        toss = UC6();
+        if(toss == 1) {
+            System.out.println("You won the toss \nmake 1st move");
+            UC4();
+        }else{
+            System.out.println("you Lost the toss Computer will make 1st move");
+        }
 
     }
     public static void UC1(){
@@ -55,8 +62,12 @@ public class TicTacToeGame {
             System.out.println("Slot already used");
             UC4();
         }
-        UC4();
 
+
+    }
+    public static int UC6(){
+        int toss = (int)((Math.random()*10) %2);
+        return toss;
 
     }
 }
