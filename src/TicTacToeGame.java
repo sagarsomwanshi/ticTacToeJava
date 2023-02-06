@@ -11,11 +11,16 @@ public class TicTacToeGame {
         toss = UC6();
         if(toss == 1) {
             System.out.println("You won the toss \nmake 1st move");
+            UC4();
         }else{
             System.out.println("you Lost the toss Computer will make 1st move");
+            UC8();
         }
+        UC7();
         while(stop ==0) {
             UC4();
+            UC7();
+            UC8();
             UC7();
         }
 
@@ -106,9 +111,11 @@ public class TicTacToeGame {
             }
             if (line.equals("xxx")) {
                 if(playLetter.equals("x")){
+                    UC3ShowBoard();
                     System.out.println("you won the game");
                     stop = 1;
                 } else{
+                    UC3ShowBoard();
                     System.out.println("Computer won the game");
                     stop = 1;
                 }
@@ -124,6 +131,60 @@ public class TicTacToeGame {
 
             }
         }
+
+    }
+    public static void UC8(){
+        if(board[1] == board[2] && board[1]!= playLetter){
+            board[3] = board[1];
+        }else if(board[2] == board[3] && board[2]!= playLetter){
+            board[1] = board[2];
+        }else if(board[1] == board[3] && board[1]!= playLetter){
+            board[2] = board[3];
+        } else if(board[4] == board[5] && board[4]!= playLetter){
+            board[6] = board[4];
+        }else if(board[5] == board[6] && board[5]!= playLetter){
+            board[4] = board[5];
+        }else if(board[4] == board[6] && board[4]!= playLetter){
+            board[5] = board[6];
+        }else if(board[7] == board[8] && board[7]!= playLetter){
+            board[9] = board[7];
+        }else if(board[8] == board[9] && board[8]!= playLetter){
+            board[7] = board[8];
+        }else if(board[7] == board[9] && board[7]!= playLetter){
+            board[8] = board[9];
+        }else if(board[7] == board[4] && board[7]!= playLetter){
+            board[1] = board[4];
+        }else if(board[4] == board[1] && board[4]!= playLetter){
+            board[7] = board[4];
+        }else if(board[7] == board[1] && board[7]!= playLetter){
+            board[4] = board[7];
+        }else if(board[8] == board[5] && board[8]!= playLetter){
+            board[2] = board[5];
+        }else if(board[5] == board[2] && board[5]!= playLetter){
+            board[8] = board[5];
+        }else if(board[8] == board[2] && board[8]!= playLetter){
+            board[5] = board[2];
+        }else if(board[9] == board[6] && board[9]!= playLetter){
+            board[3] = board[6];
+        }else if(board[6] == board[3] && board[6]!= playLetter){
+            board[9] = board[6];
+        }else if(board[9] == board[3] && board[9]!= playLetter){
+            board[6] = board[9];
+        }else if(board[7] == board[5] && board[7]!= playLetter){
+            board[3] = board[7];
+        }else if(board[5] == board[3] && board[5]!= playLetter){
+            board[7] = board[5];
+        }else if(board[7] == board[3] && board[7]!= playLetter){
+            board[5] = board[3];
+        }else if(board[1] == board[5] && board[1]!= playLetter){
+            board[9] = board[5];
+        }else if(board[5] == board[9] && board[5]!= playLetter){
+            board[1] = board[5];
+        }else if(board[1] == board[9] && board[1]!= playLetter){
+            board[5] = board[9];
+        }
+
+
 
     }
 }
