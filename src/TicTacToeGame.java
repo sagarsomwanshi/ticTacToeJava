@@ -4,15 +4,19 @@ public class TicTacToeGame {
     static String [] board = new String[10];
     static String playLetter = null;
     static int toss = 0;
+    static int stop = 0;
     public static void main(String[] args) {
         UC1();
         UC2();
         toss = UC6();
         if(toss == 1) {
             System.out.println("You won the toss \nmake 1st move");
-            UC4();
         }else{
             System.out.println("you Lost the toss Computer will make 1st move");
+        }
+        while(stop ==0) {
+            UC4();
+            UC7();
         }
 
     }
@@ -68,6 +72,58 @@ public class TicTacToeGame {
     public static int UC6(){
         int toss = (int)((Math.random()*10) %2);
         return toss;
+    }
+
+    public static void UC7(){
+        for (int i = 0; i < 8; i++) {
+            String line = null;
+
+            switch (i) {
+                case 0:
+                    line = board[1] + board[2] + board[3];
+                    break;
+                case 1:
+                    line = board[4] + board[5] + board[6];
+                    break;
+                case 2:
+                    line = board[7] + board[8] + board[9];
+                    break;
+                case 3:
+                    line = board[1] + board[4] + board[7];
+                    break;
+                case 4:
+                    line = board[2] + board[5] + board[8];
+                    break;
+                case 5:
+                    line = board[3] + board[6] + board[9];
+                    break;
+                case 6:
+                    line = board[1] + board[5] + board[9];
+                    break;
+                case 7:
+                    line = board[3] + board[5] + board[7];
+                    break;
+            }
+            if (line.equals("xxx")) {
+                if(playLetter.equals("x")){
+                    System.out.println("you won the game");
+                    stop = 1;
+                } else{
+                    System.out.println("Computer won the game");
+                    stop = 1;
+                }
+
+            }else if (line.equals("ooo")) {
+                if(playLetter.equals("o")){
+                    System.out.println("you won the game");
+                    stop = 1;
+                } else{
+                    System.out.println("Computer won the game");
+                    stop = 1;
+                }
+
+            }
+        }
 
     }
 }
