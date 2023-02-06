@@ -38,6 +38,7 @@ public class TicTacToeGame {
         UC3ShowBoard();
         System.out.println("Enter a slot number to Enter "+playLetter);
         int input = sc.nextInt();
+        if(board[input].equals(String.valueOf(input))) {
 
             switch (input) {
                 case 1, 2, 3, 4, 5, 6, 7, 8, 9:
@@ -50,6 +51,11 @@ public class TicTacToeGame {
                     break;
 
             }
+        } else{
+            System.out.println("Slot already used");
+            UC4();
+        }
+        UC4();
 
 
     }
