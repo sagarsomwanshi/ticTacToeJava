@@ -5,6 +5,11 @@ public class TicTacToeGame {
     static String playLetter = null;
     static int toss = 0;
     static int stop = 0;
+    static int uc8 = 0;
+    static int uc9 = 0;
+    static int uc10 = 0;
+
+    static String computer = null;
     public static void main(String[] args) {
         UC1();
         UC2();
@@ -17,10 +22,19 @@ public class TicTacToeGame {
             UC8();
         }
         UC7();
-        while(stop ==0) {
+
+        while(stop == 0) {
+            uc8 =0;
+            uc9 =0;
+            uc10 =0;
+
             UC4();
             UC7();
             UC8();
+            if(uc8 == 1){
+                UC9();
+                UC7();
+            }
             UC7();
         }
 
@@ -36,8 +50,10 @@ public class TicTacToeGame {
         playLetter = sc.next();
         if(playLetter.equals("x") ){
             System.out.println("You choose X \nnow computer will play with O");
+            computer = "o";
         } else if(playLetter.equals("o")){
             System.out.println("You choose O \nnow computer will play with X");
+            computer = "x";
         }else{
             System.out.println("Invalid Input \n");
             UC2();
@@ -122,9 +138,11 @@ public class TicTacToeGame {
 
             }else if (line.equals("ooo")) {
                 if(playLetter.equals("o")){
+                    UC3ShowBoard();
                     System.out.println("you won the game");
                     stop = 1;
                 } else{
+                    UC3ShowBoard();
                     System.out.println("Computer won the game");
                     stop = 1;
                 }
@@ -134,57 +152,138 @@ public class TicTacToeGame {
 
     }
     public static void UC8(){
-        if(board[1] == board[2] && board[1]!= playLetter){
+        if(board[1] == board[2] && board[3].equals("3") && board[1]!= playLetter){
             board[3] = board[1];
-        }else if(board[2] == board[3] && board[2]!= playLetter){
+        }else if(board[2] == board[3] && board[1].equals("1") && board[2]!= playLetter){
             board[1] = board[2];
-        }else if(board[1] == board[3] && board[1]!= playLetter){
+        }else if(board[1] == board[3] && board[2].equals("2") && board[1]!= playLetter){
             board[2] = board[3];
-        } else if(board[4] == board[5] && board[4]!= playLetter){
+        } else if(board[4] == board[5] && board[6].equals("6") && board[4]!= playLetter){
             board[6] = board[4];
-        }else if(board[5] == board[6] && board[5]!= playLetter){
+        }else if(board[5] == board[6] && board[4].equals("4") && board[5]!= playLetter){
             board[4] = board[5];
-        }else if(board[4] == board[6] && board[4]!= playLetter){
+        }else if(board[4] == board[6] && board[5].equals("5") && board[4]!= playLetter){
             board[5] = board[6];
-        }else if(board[7] == board[8] && board[7]!= playLetter){
+        }else if(board[7] == board[8] && board[9].equals("9") && board[7]!= playLetter){
             board[9] = board[7];
-        }else if(board[8] == board[9] && board[8]!= playLetter){
+        }else if(board[8] == board[9] && board[7].equals("7") && board[8]!= playLetter){
             board[7] = board[8];
-        }else if(board[7] == board[9] && board[7]!= playLetter){
+        }else if(board[7] == board[9] && board[8].equals("8") && board[7]!= playLetter){
             board[8] = board[9];
-        }else if(board[7] == board[4] && board[7]!= playLetter){
+        }else if(board[7] == board[4] && board[1].equals("1") && board[7]!= playLetter){
             board[1] = board[4];
-        }else if(board[4] == board[1] && board[4]!= playLetter){
+        }else if(board[4] == board[1] && board[7].equals("7") && board[4]!= playLetter){
             board[7] = board[4];
-        }else if(board[7] == board[1] && board[7]!= playLetter){
+        }else if(board[7] == board[1] && board[4].equals("4") && board[7]!= playLetter){
             board[4] = board[7];
-        }else if(board[8] == board[5] && board[8]!= playLetter){
+        }else if(board[8] == board[5] && board[2].equals("2") && board[8]!= playLetter){
             board[2] = board[5];
-        }else if(board[5] == board[2] && board[5]!= playLetter){
+        }else if(board[5] == board[2] && board[8].equals("8") && board[5]!= playLetter){
             board[8] = board[5];
-        }else if(board[8] == board[2] && board[8]!= playLetter){
+        }else if(board[8] == board[2] && board[5].equals("5") && board[8]!= playLetter){
             board[5] = board[2];
-        }else if(board[9] == board[6] && board[9]!= playLetter){
+        }else if(board[9] == board[6] && board[3].equals("3") && board[9]!= playLetter){
             board[3] = board[6];
-        }else if(board[6] == board[3] && board[6]!= playLetter){
+        }else if(board[6] == board[3] && board[9].equals("9") && board[6]!= playLetter){
             board[9] = board[6];
-        }else if(board[9] == board[3] && board[9]!= playLetter){
+        }else if(board[9] == board[3] && board[6].equals("6") && board[9]!= playLetter){
             board[6] = board[9];
-        }else if(board[7] == board[5] && board[7]!= playLetter){
+        }else if(board[7] == board[5] && board[3].equals("3") && board[7]!= playLetter){
             board[3] = board[7];
-        }else if(board[5] == board[3] && board[5]!= playLetter){
+        }else if(board[5] == board[3] && board[7].equals("7") && board[5]!= playLetter){
             board[7] = board[5];
-        }else if(board[7] == board[3] && board[7]!= playLetter){
+        }else if(board[7] == board[3] && board[5].equals("5") && board[7]!= playLetter){
             board[5] = board[3];
-        }else if(board[1] == board[5] && board[1]!= playLetter){
+        }else if(board[1] == board[5] && board[9].equals("9") && board[1]!= playLetter){
             board[9] = board[5];
-        }else if(board[5] == board[9] && board[5]!= playLetter){
+        }else if(board[5] == board[9] && board[1].equals("1") && board[5]!= playLetter){
             board[1] = board[5];
-        }else if(board[1] == board[9] && board[1]!= playLetter){
+        }else if(board[1] == board[9] && board[5].equals("5") && board[1]!= playLetter){
             board[5] = board[9];
+        }else{
+            uc8 = 1;
+        }
+    }
+    public static void UC9(){
+        int arry [] = new int[24];
+
+        if(board[1] == board[2] && board[1]== playLetter && board[3].equals("3")){
+            board[3] = computer;
+        }else if(board[2] == board[3] && board[2]== playLetter && board[1].equals("1")){
+            board[1] = computer;
+
+        }else if(board[1] == board[3] && board[1]== playLetter && board[2].equals("2")){
+            board[2] = computer;
+
+        } else if(board[4] == board[5] && board[4]== playLetter && board[6].equals("6")){
+            board[6] = computer;
+
+        }else if(board[5] == board[6] && board[5]== playLetter && board[4].equals("4")){
+            board[4] = computer;
+
+        }else if(board[4] == board[6] && board[4]== playLetter && board[5].equals("5")){
+            board[5] = computer;
+
+        }else if(board[7] == board[8] && board[7]== playLetter && board[9].equals("9")){
+            board[9] = computer;
+
+        }else if(board[8] == board[9] && board[8]== playLetter && board[7].equals("7")){
+            board[7] = computer;
+
+        }else if(board[7] == board[9] && board[7]== playLetter && board[8].equals("8")){
+            board[8] = computer;
+
+        }else if(board[7] == board[4] && board[7]== playLetter && board[1].equals("1")){
+            board[1] = computer;
+
+        }else if(board[4] == board[1] && board[4]== playLetter && board[7].equals("7")){
+            board[7] = computer;
+
+        }else if(board[7] == board[1] && board[7]== playLetter && board[4].equals("4")){
+            board[4] = computer;
+
+        }else if(board[8] == board[5] && board[8]== playLetter && board[2].equals("2")){
+            board[2] = computer;
+
+        }else if(board[5] == board[2] && board[5]== playLetter && board[8].equals("8")){
+            board[8] = computer;
+
+        }else if(board[8] == board[2] && board[8]== playLetter && board[5].equals("5")){
+            board[5] = computer;
+
+        }else if(board[9] == board[6] && board[9]== playLetter && board[3].equals("3")){
+            board[3] = computer;
+
+        }else if(board[6] == board[3] && board[6]== playLetter && board[9].equals("9")){
+            board[9] = computer;
+
+        }else if(board[9] == board[3] && board[9]== playLetter && board[6].equals("6")){
+            board[6] = computer;
+
+        }else if(board[7] == board[5] && board[7]== playLetter && board[3].equals("3")){
+            board[3] = computer;
+
+        }else if(board[5] == board[3] && board[5]== playLetter && board[7].equals("7")){
+            board[7] = computer;
+
+        }else if(board[7] == board[3] && board[7]== playLetter && board[5].equals("5")){
+            board[5] = computer;
+
+        }else if(board[1] == board[5] && board[1]== playLetter && board[9].equals("9")){
+            board[9] = computer;
+
+        }else if(board[5] == board[9] && board[5]== playLetter && board[1].equals("1")){
+            board[1] = computer;
+
+        }else if(board[1] == board[9] && board[1]== playLetter && board[5].equals("5")){
+            board[5] = computer;
+
+        }else{
+            uc9 = 1;
         }
 
 
-
     }
+
+
 }
