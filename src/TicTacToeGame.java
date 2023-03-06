@@ -8,29 +8,7 @@ public class TicTacToeGame {
 
     static String computer = null;
     public static void main(String[] args) {
-        UC1();
-        UC2();
-        toss = UC6();
-        if(toss == 1) {
-            System.out.println("You won the toss \nmake 1st move");
-            UC4();
-            UC7();
-            UC8();
-            UC7();
-        }else{
-            System.out.println("you Lost the toss Computer will make 1st move");
-            UC8();
-        }
-
-
-        while(stop <= 9) {
-            UC4();
-            UC7();
-            UC8();
-            UC7();
-            stop++;
-        }
-
+       UC13_new_game();
     }
     public static void UC1(){
 
@@ -124,12 +102,12 @@ public class TicTacToeGame {
                     System.out.println("\n");
                     UC3ShowBoard();
                     System.out.println("you won the game");
-                    System.exit(0);
+                    another_game();
                 } else{
                     System.out.println("\n");
                     UC3ShowBoard();
                     System.out.println("Computer won the game");
-                    System.exit(0);
+                    another_game();
                 }
 
             }else if (line.equals("ooo")) {
@@ -137,14 +115,17 @@ public class TicTacToeGame {
                     System.out.println("\n");
                     UC3ShowBoard();
                     System.out.println("you won the game");
-                    System.exit(0);
+                    another_game();
                 } else{
                     System.out.println("\n");
                     UC3ShowBoard();
                     System.out.println("Computer won the game");
-                    System.exit(0);
+                    another_game();
                 }
 
+            } else if (!board[1].equals("1") && !board[2].equals("2") && !board[3].equals("3") && !board[4].equals("4") && !board[5].equals("5") && !board[6].equals("6") && !board[7].equals("7") && !board[8].equals("8")) {
+                System.out.println("Match tie");
+                another_game();
             }
         }
 
@@ -314,6 +295,41 @@ public class TicTacToeGame {
             System.out.println("UC11 Unsuccessful");
         }
     }
+    public static void UC13_new_game(){
+        UC1();
+        UC2();
+        toss = UC6();
+        if(toss == 1) {
+            System.out.println("You won the toss \nmake 1st move");
+            UC4();
+            UC7();
+            UC8();
+            UC7();
+        }else{
+            System.out.println("you Lost the toss Computer will make 1st move");
+            UC8();
+        }
 
 
+        while(stop <= 9) {
+            UC4();
+            UC7();
+            UC8();
+            UC7();
+            stop++;
+        }
+
+    }
+    public static void another_game(){
+        System.out.println("If you want to play another game enter 1\nTo stop playing enter 2 ");
+        Scanner sc = new Scanner(System.in);
+        int check = sc.nextInt();
+        if(check == 1){
+            UC13_new_game();
+        }else if(check ==2 ){
+            System.exit(0);
+        }else{
+            System.out.println("Invalid Input");
+        }
+    }
 }
