@@ -14,17 +14,21 @@ public class TicTacToeGame {
         if(toss == 1) {
             System.out.println("You won the toss \nmake 1st move");
             UC4();
+            UC7();
+            UC8();
+            UC7();
         }else{
             System.out.println("you Lost the toss Computer will make 1st move");
             UC8();
         }
-        UC7();
 
-        while(stop == 0) {
+
+        while(stop <= 9) {
             UC4();
             UC7();
             UC8();
             UC7();
+            stop++;
         }
 
     }
@@ -117,27 +121,27 @@ public class TicTacToeGame {
 
             if (line.equals("xxx")) {
                 if(playLetter.equals("x")){
-                    System.out.println("you won the game");
+                    System.out.println("\n");
                     UC3ShowBoard();
-                    stop = 1;
+                    System.out.println("you won the game");
                     System.exit(0);
                 } else{
-                    System.out.println("Computer won the game");
+                    System.out.println("\n");
                     UC3ShowBoard();
+                    System.out.println("Computer won the game");
                     System.exit(0);
-                    stop = 1;
                 }
 
             }else if (line.equals("ooo")) {
                 if(playLetter.equals("o")){
-                    System.out.println("you won the game");
+                    System.out.println("\n");
                     UC3ShowBoard();
-                    stop = 1;
+                    System.out.println("you won the game");
                     System.exit(0);
                 } else{
-                    System.out.println("Computer won the game");
+                    System.out.println("\n");
                     UC3ShowBoard();
-                    stop = 1;
+                    System.out.println("Computer won the game");
                     System.exit(0);
                 }
 
@@ -195,6 +199,7 @@ public class TicTacToeGame {
         }else if(board[1] == board[9] && board[5].equals("5") && board[1]!= playLetter){
             board[5] = board[9];
         }else{
+            System.out.println("UC8 Unsuccessful");
             UC9();
         }
     }
@@ -273,6 +278,7 @@ public class TicTacToeGame {
             board[5] = computer;
 
         }else{
+            System.out.println("UC9 Unsuccessful");
             UC10_Corner();
         }
 
@@ -288,6 +294,24 @@ public class TicTacToeGame {
             board[9]= computer;
         }else if (board[7].equals("7")) {
             board[7]= computer;
+        }else{
+            System.out.println("UC10 Unsuccessful");
+            UC11_Center();
+        }
+    }
+    public static void UC11_Center(){
+        if(board[5].equals("5")){
+            board[5]= computer;
+        }else if(board[2].equals("2")){
+            board[2]= computer;
+        }else if(board[4].equals("4")){
+            board[4]= computer;
+        }else if(board[6].equals("6")){
+            board[6]= computer;
+        }else if(board[8].equals("8")){
+            board[8]= computer;
+        }else {
+            System.out.println("UC11 Unsuccessful");
         }
     }
 
